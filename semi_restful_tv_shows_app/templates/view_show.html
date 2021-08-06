@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{a_show.title}}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div id="wrapper">
+        <div id="">
+            <div>
+                <h1>TV Show {{a_show.id}}</h1>
+                <a href="/shows">Go Back</a>
+            </div>
+            <div>
+                <p>Title: {{a_show.title}}</p>
+                <p>Network: {{a_show.network}}</p>
+                <p>Release Date: {{a_show.release_date}}</p>
+                <p>Description: {{a_show.description}}</p>
+            </div>
+        <p>Last Updated: {{a_show.updated_at}}</p>
+        <div>                
+            <form action="/shows/{{a_show.id}}/edit" method="POST">
+            {% csrf_token %}
+                <button type="submit">Edit</button>
+            </form>
+            <p>|</p>
+            <form action="/shows/{{a_show.id}}/destroy" method="POST">
+            {% csrf_token %}
+                <button type="submit">Delete</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
