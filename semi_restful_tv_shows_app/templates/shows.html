@@ -10,8 +10,8 @@
 </head>
 <body>
     <div id="wrapper">
-        <div>
-            <h1>All Shows</h1>
+        <div id="shows">
+            <h1>List of All Shows</h1>
             <table>
                 <thead>
                     <tr>
@@ -29,7 +29,7 @@
                         <td>{{show.title}}</td>
                         <td>{{show.network}}</td>
                         <td>{{show.release_date}}</td>
-                        <td>
+                        <td id="form">
                             <form action="/shows/{{show.id}}" method="POST">
                             {% csrf_token %}
                                 <button type="submit">Show</button>
@@ -48,7 +48,7 @@
                 </tbody>
             </table>
         </div>
-        <div>
+        <div id="add_show">
             <a href="/shows/new_show">Add a New Show</a>
         </div>
     </div>
