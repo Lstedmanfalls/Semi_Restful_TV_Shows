@@ -10,7 +10,7 @@ class ShowsManager(models.Manager):
             errors["title"] = "Title should be at least 2 characters"
         if len(postData['network']) < 3:
             errors["network"] = "Network should be at least 3 characters"
-        elif str(today) < postData['release_date']:
+        elif str(today) <= postData['release_date']:
             errors["release_date"] = "Release date cannot be now or in the future"
         if len(postData["description"]) !=0 and len(postData['description']) < 10:
             errors["description"] = "Description can be blank or at least 10 characters"
