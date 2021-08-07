@@ -12,21 +12,28 @@
     <div id="wrapper">
         <div>
             <h1>Add a New Show</h1>
+            {% if messages %}
+            <ul class="messages">    
+            {% for message in messages %}    
+                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+                {% endfor %}
+            </ul>
+            {% endif %}
             <form action="/shows/create_show" method="POST">
                 {% csrf_token %}
                 <label for="title">Title</label>
-                <input name="title" type="text" required>
+                <input name="title" type="text">
                 <label for="network">Network</label>
-                <input name="network" type="text" required>
+                <input name="network" type="text">
                 <label for="release_date">Release Date</label>
-                <input name="release_date" type="date" required>
+                <input name="release_date" type="date">
                 <label for="description">Description</label>
-                <input name="description" type="text" required>
+                <input name="description" type="text">
                 <button type="submit">Submit</button>
             </form>
         </div>
         <div>
-            <a href="/shows">Go Back</a>
+            <a href="/shows">Back to All Shows</a>
         </div>
     </div>
 </body>

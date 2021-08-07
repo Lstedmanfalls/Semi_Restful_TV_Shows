@@ -12,9 +12,16 @@
     <div id="wrapper">
         <div>
             <h1>Edit Show {{a_show.id}}</h1>
-            <a href="/shows">Go Back</a>
+            <a href="/shows">Back to All Shows</a>
         <div>
         <div>
+            {% if messages %}
+            <ul class="messages">    
+            {% for message in messages %}    
+                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+                {% endfor %}
+            </ul>
+            {% endif %}
             <form action="/shows/{{a_show.id}}/update" method="POST">
                 {% csrf_token %}
                 <label for="title">Title</label>
@@ -29,7 +36,7 @@
             </form>
         </div>
         <div>
-            <a href="/shows/{{a_show.id}}">Go to Show</a>
+            <a href="/shows/{{a_show.id}}">View Show Without Editing</a>
         </div>
     </div>
 </body>
