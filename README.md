@@ -6,4 +6,4 @@
 <h2>View A Show</h2>
 <img src ="view_show.JPG">
 <h2>Edit Show</h2>
-<img src ="edit_show.JPG>
+<img src ="edit_show.JPG">
