@@ -10,35 +10,35 @@
 </head>
 <body>
     <div id="wrapper">
-        <div id="">
-            <div>
-                <h1>TV Show {{a_show.id}}</h1>
-                {% if messages %}
-                <ul class="messages">    
+        <div id="nav">
+        <a href="/shows">Back to All Shows</a>
+        </div>
+        <div id="content">
+            <h1>{{a_show.title}}</h1>
+            {% if messages %}
+            <div id="messages">
                 {% for message in messages %}    
-                    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
-                    {% endfor %}
-                </ul>
+                    <p>{{ message }}</p>    
+                {% endfor %}
                 {% endif %}
-                <a href="/shows">Back to All Shows</a>
             </div>
-            <div>
-                <p>Title: {{a_show.title}}</p>
-                <p>Network: {{a_show.network}}</p>
-                <p>Release Date: {{a_show.release_date}}</p>
-                <p>Description: {{a_show.description}}</p>
+            <div id="show_info">
+                <p><span class="label">Title: </span>{{a_show.title}}</p>
+                <p><span class="label">Network: </span>{{a_show.network}}</p>
+                <p><span class="label">Release Date: </span>{{a_show.release_date}}</p>
+                <p><span class="label">Description: </span>{{a_show.description}}</p>
+                <p><span class="label">Last Updated: </span>{{a_show.updated_at}}</p>
             </div>
-        <p>Last Updated: {{a_show.updated_at}}</p>
-        <div>                
-            <form action="/shows/{{a_show.id}}/edit" method="POST">
-            {% csrf_token %}
-                <button type="submit">Edit</button>
-            </form>
-            <p>|</p>
-            <form action="/shows/{{a_show.id}}/destroy" method="POST">
-            {% csrf_token %}
-                <button type="submit">Delete</button>
-            </form>
+            <div id ="edit">                
+                <form action="/shows/{{a_show.id}}/edit" method="POST">
+                {% csrf_token %}
+                    <button type="submit">Edit</button>
+                </form>
+                <form action="/shows/{{a_show.id}}/destroy" method="POST">
+                {% csrf_token %}
+                    <button type="submit">Delete</button>
+                </form>
+            </div>
         </div>
     </div>
 </body>

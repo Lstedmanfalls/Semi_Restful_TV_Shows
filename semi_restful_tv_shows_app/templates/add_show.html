@@ -10,7 +10,10 @@
 </head>
 <body>
     <div id="wrapper">
-        <div>
+        <div id="nav">
+            <a href="/shows">Back to All Shows</a>
+        </div>
+        <div id="add_show">
             <h1>Add a New Show</h1>
             {% if messages %}
             <ul class="messages">    
@@ -21,19 +24,16 @@
             {% endif %}
             <form action="/shows/create_show" method="POST">
                 {% csrf_token %}
-                <label for="title">Title</label>
+                <label class ="label" for="title">Title</label>
                 <input name="title" type="text">
-                <label for="network">Network</label>
+                <label class ="label" for="network">Network</label>
                 <input name="network" type="text">
-                <label for="release_date">Release Date</label>
+                <label class ="label" for="release_date">Release Date</label>
                 <input name="release_date" type="date">
-                <label for="description">Description</label>
+                <label class ="label" for="description">Description</label>
                 <input name="description" type="text">
                 <button type="submit">Submit</button>
             </form>
-        </div>
-        <div>
-            <a href="/shows">Back to All Shows</a>
         </div>
     </div>
 </body>

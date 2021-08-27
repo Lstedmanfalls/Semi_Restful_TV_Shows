@@ -10,11 +10,11 @@
 </head>
 <body>
     <div id="wrapper">
-        <div>
-            <h1>Edit Show {{a_show.id}}</h1>
+        <div id="nav">
             <a href="/shows">Back to All Shows</a>
-        <div>
-        <div>
+        </div>
+        <div id="edit">
+            <h1>Edit {{a_show.title}}</h1>
             {% if messages %}
             <ul class="messages">    
             {% for message in messages %}    
@@ -24,19 +24,17 @@
             {% endif %}
             <form action="/shows/{{a_show.id}}/update" method="POST">
                 {% csrf_token %}
-                <label for="title">Title</label>
+                <label class="label" for="title">Title</label>
                 <input name="title" type="text" value="{{a_show.title}}">
-                <label for="network">Network</label>
+                <label class="label" for="network">Network</label>
                 <input name="network" type="text" value ="{{a_show.network}}">
-                <label for="release_date">Release Date</label>
+                <label class="label" for="release_date">Release Date</label>
                 <input name="release_date" type="date" value ="{{a_show.release_date|date:'Y-m-d'}}">
-                <label for="description">Description</label>
+                <label class="label" for="description">Description</label>
                 <input name="description" type="text" value ="{{a_show.description}}">
                 <button type="submit">Update</button>
+                <a href="/shows/{{a_show.id}}">Cancel</a>
             </form>
-        </div>
-        <div>
-            <a href="/shows/{{a_show.id}}">View Show Without Editing</a>
         </div>
     </div>
 </body>

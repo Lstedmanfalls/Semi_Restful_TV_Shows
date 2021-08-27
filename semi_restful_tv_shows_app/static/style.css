@@ -8,6 +8,17 @@ html{
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
+#nav{
+    display: flex;
+    width:100%;
+    justify-content: center;
+    padding:1.5rem 0;
+}
+
+#nav a{
+    font-size:2rem;
+}
+
 #shows{
     padding-top:4rem;
 }
@@ -22,7 +33,7 @@ body{
 h1{
     text-align: center;
     font-size:5rem;
-    padding-bottom: 3rem;
+    padding-bottom: 2rem;
 }
 
 table{
@@ -67,17 +78,18 @@ button{
     box-shadow: .3rem .3rem #888888
 }
 
-button:hover{
+button:hover, #add_show_button > a:hover{
     background-color: whitesmoke;
+    cursor: pointer;
 }
 
-#add_show{
+#add_show_button{
     padding:4rem;
     text-align: center;
     font-size:3rem;
 }
 
-#add_show > a{
+#add_show_button > a{
     text-decoration: none;
     background-color: white;
     border:.1rem solid gray;
@@ -87,6 +99,43 @@ button:hover{
     box-shadow: .3rem .3rem #888888
 }
 
-#add_show > a:hover{
-    background-color:whitesmoke;
+#content{
+    padding-top:3rem;
+}
+
+#edit form{
+    display:flex;
+    flex-direction: column;
+}
+
+#edit a{
+    align-self: center;
+    font-size:2rem;
+}
+
+.label{
+    font-weight: bold;
+    font-size:3rem;
+}
+
+#show_info > p{
+    font-size:2rem;
+}
+
+#add_show form{
+    display: flex;
+    flex-direction: column;
+}
+
+#add_show button, #edit button{
+    width:20%;
+    align-self: center;
+}
+
+input:last-of-type{
+    margin-bottom:1rem;
+}
+
+input{
+    padding:.5rem;
 }
